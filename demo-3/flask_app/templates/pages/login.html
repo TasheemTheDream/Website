@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% block style %} /static/css/login.css {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="inner-box" id="card">
+            <div class="card-front">
+                <h2>LOGIN</h2>
+                {% with errors = get_flashed_messages(category_filter = ['login']) %}
+            {% if errors %}
+            <div class="alert">
+                <h4>Please fix these errors before proceeding:</h4>
+                <ul>
+                    {% for message in errors %}
+                    <li class="primary">{{message}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% endwith %}
+                <form action="/login" method="post">
+                    <input type="email" class="input-box" placeholder="Your Email" id="Email"  name="Email" required>
+                    <input type="password" class="input-box" placeholder="Enter Your Password" id="Password"  name="Password" required>
+                    <button type="submit" class="submit-btn">login</button>
+                    
+                </form>
+                <button type="button" class="btn" onclick="openRegister()">Register</button>
+                <a href="">Forgot Password</a>
+            </div>
+            <div class="card-back">
+                <h2>Register</h2>
+                {% with errors = get_flashed_messages(category_filter = ['register']) %}
+            {% if errors %}
+            <div class="alert alert-danger">
+                <h4>Please fix these errors before proceeding:</h4>
+                <ul>
+                    {% for message in errors %}
+                    <li class="primary">{{message}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% endwith %}
+                <form action="/register/create" method="post">
+                    <input type="text" class="input-box" placeholder="First Name" id="Fname"  name="Fname" required>
+                    <input type="text" class="input-box" placeholder="Last Name" id="Lname"  name="Lname" required>
+                    <input type="email" class="input-box" placeholder="Your Email"  id="Email"  name="Email" required>
+                    <input type="password" class="input-box" placeholder="Enter Your Password" id="Password"  name="Password"  required>
+                    <input type="password" class="input-box" placeholder="Enter Your Password" id="ConPassword"  name="ConPassword" required>
+                    <button type="submit" class="submit-btn">Register</button>
+                    
+                </form>
+                <button type="button" class="btn" onclick="openLogin()">I have an Account</button>
+                <a href="">Forgot Password</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/login.js"></script>
+{% endblock %}

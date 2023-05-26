@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block style %} /static/css/upload.css {% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="title">Create Anime</div>
+    <div class="content">
+      <div class="progress" style="display: none">
+        <div class="progress-bar" style="width: 0%"></div>
+    </div>
+    <div id="success-div" class="alert alert-success" style="display: none"></div>
+    <div id="error-div" class="alert alert-danger" style="display: none"></div>
+      <form action="/upload" method="post" id="form-upload" enctype="multipart/form-data">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Anime Name</span>
+            <input type="text" placeholder="Enter Anime Title" name="anime_name" >
+          </div>
+          <div class="input-box">
+            <span class="details">Air Date</span>
+            <input type="text" placeholder="Enter Air Date" name="air_date">
+          </div>
+          <div class="input-box">
+            <span class="details">Studio</span>
+            <input type="text" placeholder="Studio Name" name="studio">
+          </div>
+          <div class="input-box">
+            <span class="details">Producer</span>
+            <input type="text" placeholder="Producer Name(s)" name="producer">
+          </div>
+          <div class="input-box">
+            <span class="details"># of Episodes</span>
+            <input type="number" name="episode_count" >
+          </div>
+          <div class="input-box">
+            <span class="details">description</span>
+            <textarea name="description" id="description" cols="45" rows="10" name="description"></textarea>
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="details">Upload picture</span>
+          <input type="file" name="my_file" class="form-control" />
+      </div>
+      
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/static/models/upload.js"></script>
+  {% endblock %}
