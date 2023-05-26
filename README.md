@@ -1,1 +1,1 @@
-# Website
+So I had some issues getting the pagination working and that took up a lot of my time. It honestly ended up making me missing a lot of my other features. But overall i do like how the design of the website ended up overall
