@@ -29,8 +29,8 @@ def MakeUser():
         "email" : request.form["Email"],
         "password" :bcrypt.generate_password_hash(request.form["Password"])
     }
-    login.Login.register(data)
-    
+    result = login.Login.register(data)
+    print(result)
     return redirect("/user/create")
 
 @app.route("/login", methods= ['POST'])
@@ -43,7 +43,7 @@ def display_users():
         flash("incorrect password", "login")
         return redirect("/user/create")
     session["user_id"] = user.id
-    return redirect("/user_page")
+    return redirect("/browse/0")
 
 # @app.route("/user_page")
 # def edit_user():
